@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
     public GameObject shopPanel;
     public GameObject buyPanel;
     private float currentCost;
-    private GameObject currentBuyItemButton;
+    [SerializeField] private GameObject currentBuyItemButton;
 
     public GameObject nextMapPanel;
     public Button NoButton;
@@ -99,6 +99,10 @@ public class UIManager : MonoBehaviour
         if (isNext)
         {
             GameManager.Instance.LoadNextMap();
+            foreach (var panel in panels)
+            {
+                panel.SetActive(false);
+            }
         }
     }
 
@@ -112,10 +116,9 @@ public class UIManager : MonoBehaviour
         shopPanel.SetActive(true);
     }
 
-    public void EnterItemInShop(float cost, GameObject button)
+    public void EnterItemInShop(float cost)
     {
         currentCost = cost;
-        currentBuyItemButton = button;
         buyPanel.SetActive(true);
     }
 

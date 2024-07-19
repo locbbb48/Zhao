@@ -19,7 +19,7 @@ public class CrackWall : ObjectAbstact
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && GameManager.Instance.isHaveDagger)
+        if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(CheckForDamage());
         }
@@ -31,16 +31,23 @@ public class CrackWall : ObjectAbstact
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                TakeDamage(10);
+                if (GameManager.Instance.isHaveDagger)
+                {
+                    TakeDamage(10);
 
-                ParticleSystem particle = ParticlePool.Instance.GetObject();
-                particle.transform.position = transform.position;
-                particle.gameObject.SetActive(true);
+                    ParticleSystem particle = ParticlePool.Instance.GetObject();
+                    particle.transform.position = transform.position;
+                    particle.gameObject.SetActive(true);
 
 
-                yield return new WaitForSeconds(particle.main.duration);
+                    yield return new WaitForSeconds(particle.main.duration);
 
-                ParticlePool.Instance.ReturnObject(particle);
+                    ParticlePool.Instance.ReturnObject(particle);
+                }
+                else
+                {
+                    UIManager.Instance.ShowNoti("You don't have a Dagger! Buy one in shop.");
+                }
             }
 
             if (currentHP <= 0)
