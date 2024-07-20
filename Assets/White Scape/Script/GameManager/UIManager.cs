@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
         NoButton.onClick.AddListener(() => HandleNextMap(false));
     }
 
-    public void ShowNoti(string message, float duration = 1.0f)
+    public void ShowNoti(string message, float duration = 0.5f)
     {
         notificationQueue.Enqueue(message);
         if (!isShowingNotification)

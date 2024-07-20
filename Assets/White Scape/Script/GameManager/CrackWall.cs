@@ -9,6 +9,7 @@ using UnityEngine;
 public class CrackWall : ObjectAbstact
 {
     [SerializeField] private ParticleSystem hitEffect;
+    [SerializeField] private bool isCol = false;
 
     protected override void Start()
     {
@@ -22,6 +23,14 @@ public class CrackWall : ObjectAbstact
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(CheckForDamage());
+            isCol = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isCol = false;
         }
     }
 
@@ -29,7 +38,7 @@ public class CrackWall : ObjectAbstact
     {
         while (true)
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return) && isCol)
             {
                 if (GameManager.Instance.isHaveDagger)
                 {

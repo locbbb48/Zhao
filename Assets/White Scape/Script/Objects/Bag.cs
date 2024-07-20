@@ -39,11 +39,13 @@ public class Bag : MonoBehaviour
             {
                 inBagItem.totalQuantity += puI.quantity;
                 puI.isPickUped = true;
-                UIManager.Instance.ShowNoti($"Added {puI.quantity} {puI.Name}(s) to the bag. Total: {inBagItem.totalQuantity}");
+                UIManager.Instance.ShowNoti(
+                    $"Added <color=yellow>{puI.quantity}</color> {puI.Name}(s) to the bag. Total: <color=yellow>{inBagItem.totalQuantity}</color>",1f
+                );
             }
             else
             {
-                UIManager.Instance.ShowNoti($"Cannot add {puI.quantity} {puI.Name}(s) to the bag. Exceeds maximum quantity.");
+                UIManager.Instance.ShowNoti($"Cannot add <color=yellow>{puI.quantity}</color> {puI.Name}(s) to the bag. Exceeds maximum quantity.");
             }
         }
         else
@@ -52,7 +54,7 @@ public class Bag : MonoBehaviour
             inBagItem.totalQuantity = puI.quantity;
             inBagItems.Add(inBagItem);
             puI.isPickUped = true;
-            UIManager.Instance.ShowNoti($"Added {puI.quantity} {puI.Name}(s) to the bag. Total: {inBagItem.totalQuantity}");
+            UIManager.Instance.ShowNoti($"Added <color=yellow>{puI.quantity}</color> {puI.Name}(s) to the bag. Total: <color=yellow>{inBagItem.totalQuantity}</color>",1f);
         }
     }
 
@@ -62,21 +64,22 @@ public class Bag : MonoBehaviour
 
         if (inBagItem != null)
         {
+            string itemName = inBagItem.pickupItem.Name;
+
             if (inBagItem.totalQuantity >= quantity)
             {
                 inBagItem.totalQuantity -= quantity;
 
-                UIManager.Instance.ShowNoti($"Used {quantity} of item ID {itemId}. Remaining: {inBagItem.totalQuantity}");
+                UIManager.Instance.ShowNoti($"Used <color=yellow>{quantity}</color> of {itemName}. Remaining: <color=yellow>{inBagItem.totalQuantity}</color>");
 
                 if (inBagItem.totalQuantity <= 0)
                 {
-                    inBagItems.Remove(inBagItem);
-                    UIManager.Instance.ShowNoti($"Item ID {itemId} is completely used up and removed from the bag.");
+                    UIManager.Instance.ShowNoti($"{itemName} is completely used up.");
                 }
             }
             else
             {
-                UIManager.Instance.ShowNoti($"Not enough items with ID {itemId} to use.");
+                UIManager.Instance.ShowNoti($"Not enough {itemName} to use.");
             }
         }
         else
@@ -84,6 +87,8 @@ public class Bag : MonoBehaviour
             UIManager.Instance.ShowNoti($"Item with ID {itemId} not found in the bag.");
         }
     }
+
+
 
     public float GetItemQuantity(string itemName)
     {

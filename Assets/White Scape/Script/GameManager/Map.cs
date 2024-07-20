@@ -10,16 +10,16 @@ public class Map : MonoBehaviour
     public GameObject startPoint;
     public EndPoint endPoint;
 
-    private void Start()
+    protected void Start()
     {
         Prefab = GetComponent<GameObject>();
     }
-    private void OnEnable()
+    protected void OnEnable()
     {
         MovePlayerToStartPoint();
     }
 
-    private void MovePlayerToStartPoint()
+    protected void MovePlayerToStartPoint()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null && startPoint != null)

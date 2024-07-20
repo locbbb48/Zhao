@@ -3,7 +3,7 @@
 */
 using UnityEngine;
 
-public class Map1 : Map
+public class Map3 : Map
 {
     protected new void Start()
     {
@@ -14,7 +14,7 @@ public class Map1 : Map
         }
         else
         {
-            GameManager.Instance.isLightOn = true;
+            GameManager.Instance.isLightOn = false;
         }
     }
 }

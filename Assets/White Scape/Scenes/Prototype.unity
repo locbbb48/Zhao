@@ -147,7 +147,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46833589}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -896,17 +896,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203353516}
   m_CullTransparentMesh: 1
---- !u!114 &219016717 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8741012227328285999, guid: e2ac905c6dc8f3f46bce1c5d6812ee1a, type: 3}
-  m_PrefabInstance: {fileID: 8772068500007677629}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 757e092c251904a44b48c8874df04306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &220983222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5779220380710614844, guid: 1f7664fbc31e06b47be005d56dc25eef, type: 3}
@@ -1012,7 +1001,7 @@ GameObject:
   - component: {fileID: 281621107}
   - component: {fileID: 281621106}
   m_Layer: 5
-  m_Name: BuyPanel
+  m_Name: AcceptToBuyPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1466,7 +1455,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.96, y: -0.24, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1811,12 +1800,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33ca74b282a8404987825cebfb81e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1749615111}
   debugText: {fileID: 1061800074}
   bagIcon: {fileID: 2053891171}
   bagPanel: {fileID: 1387111575}
   shopPanel: {fileID: 1703945134}
   buyPanel: {fileID: 281621104}
+  currentBuyItemButton: {fileID: 1131313262}
   nextMapPanel: {fileID: 974734224}
   NoButton: {fileID: 136338334}
   YesButton: {fileID: 1421303862}
@@ -2040,7 +2030,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 656666401}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 621686838}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: AcceptToBuy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &656666401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2166,12 +2168,12 @@ MonoBehaviour:
       - m_Target: {fileID: 621686838}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: EnterItemInShop
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 6000
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -2300,12 +2302,12 @@ MonoBehaviour:
       - m_Target: {fileID: 621686838}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: EnterItemInShop
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 800
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -3177,8 +3179,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4292411136
+  m_fontColor: {r: 0, g: 1, b: 0.84775734, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3594,22 +3596,22 @@ Transform:
   m_GameObject: {fileID: 1094087982}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.96, y: -0.24, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 235695828}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1126016103 stripped
+--- !u!114 &1126016105 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8726426112391422427, guid: be5f4526eac435d47b43869f97fe86da, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6978869336816925111, guid: be5f4526eac435d47b43869f97fe86da, type: 3}
   m_PrefabInstance: {fileID: 2728201446140535628}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 757e092c251904a44b48c8874df04306, type: 3}
+  m_Script: {fileID: 11500000, guid: 23f44a785957e9c42b2a449ed4f51188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1131313262
@@ -3699,12 +3701,12 @@ MonoBehaviour:
       - m_Target: {fileID: 621686838}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: EnterItemInShop
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 30
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -3746,15 +3748,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131313262}
   m_CullTransparentMesh: 1
---- !u!114 &1162927640 stripped
+--- !u!114 &1162927642 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3640285897213493020, guid: 625eaca5b0cf88f4994992596076543f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 9024709691755521489, guid: 625eaca5b0cf88f4994992596076543f, type: 3}
   m_PrefabInstance: {fileID: 3316372932179430564}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 757e092c251904a44b48c8874df04306, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a75a6d1c3a87b941826a905b7cd9739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1191368662 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4469217122156981496, guid: e2ac905c6dc8f3f46bce1c5d6812ee1a, type: 3}
+  m_PrefabInstance: {fileID: 8772068500007677629}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f315a68403aa1b941bc02216644eeb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1203431368
@@ -4021,7 +4034,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1249037308}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 621686838}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: DeclineToBuy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1249037308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4147,12 +4172,12 @@ MonoBehaviour:
       - m_Target: {fileID: 621686838}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: EnterItemInShop
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 2550
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -4957,12 +4982,12 @@ MonoBehaviour:
       - m_Target: {fileID: 621686838}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: EnterItemInShop
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 21000
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -5549,11 +5574,6 @@ MonoBehaviour:
   totalQuantity: 0
   maxQuantity: 1000
   totalQuantity_Text: {fileID: 1066800078}
---- !u!4 &1597173618 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 513283344615516653, guid: be5f4526eac435d47b43869f97fe86da, type: 3}
-  m_PrefabInstance: {fileID: 2728201446140535628}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1636224471
 GameObject:
   m_ObjectHideFlags: 0
@@ -5641,12 +5661,12 @@ MonoBehaviour:
       - m_Target: {fileID: 621686838}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: EnterItemInShop
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 56789
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -5769,6 +5789,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703945134}
   m_CullTransparentMesh: 1
+--- !u!114 &1749615111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6251618737864412668, guid: 1f7664fbc31e06b47be005d56dc25eef, type: 3}
+  m_PrefabInstance: {fileID: 1835922905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1369ab1ca710d4f9220cbd6d952964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1820679039
 GameObject:
   m_ObjectHideFlags: 0
@@ -5873,12 +5904,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a0f829c917a9e45b52af391e1783bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1749615111}
   light2D: {fileID: 46833590}
   isLightOn: 1
   maps:
-  - {fileID: 1162927640}
-  - {fileID: 219016717}
-  - {fileID: 1126016103}
+  - {fileID: 1162927642}
+  - {fileID: 1191368662}
+  - {fileID: 1126016105}
   currentMapIndex: 0
   isHaveDagger: 0
 --- !u!4 &1830512321
@@ -5923,11 +5955,11 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: 078f2f9be843c164f8e07b7a9b898dd2, type: 2}
     - target: {fileID: 5779220380710614844, guid: 1f7664fbc31e06b47be005d56dc25eef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.96
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5779220380710614844, guid: 1f7664fbc31e06b47be005d56dc25eef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5779220380710614844, guid: 1f7664fbc31e06b47be005d56dc25eef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6679,10 +6711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 513283344615516653, guid: be5f4526eac435d47b43869f97fe86da, type: 3}
-      insertIndex: 16
-      addedObject: {fileID: 4511044360445094601}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be5f4526eac435d47b43869f97fe86da, type: 3}
 --- !u!1001 &3316372932179430564
@@ -6737,73 +6766,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapLV1
       objectReference: {fileID: 0}
+    - target: {fileID: 3956468783846399429, guid: 625eaca5b0cf88f4994992596076543f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 625eaca5b0cf88f4994992596076543f, type: 3}
---- !u!1001 &4511044360445094600
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1597173618}
-    m_Modifications:
-    - target: {fileID: 6482620083461714610, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-      propertyPath: m_Name
-      value: Particle System 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179415808198815549, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179415808198815549, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179415808198815549, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179415808198815549, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179415808198815549, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179415808198815549, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179415808198815549, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179415808198815549, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179415808198815549, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179415808198815549, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: afdf238982c6e964c980fbfac9889530, type: 3}
---- !u!4 &4511044360445094601 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8179415808198815549, guid: afdf238982c6e964c980fbfac9889530, type: 3}
-  m_PrefabInstance: {fileID: 4511044360445094600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8772068500007677629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6815,6 +6786,10 @@ PrefabInstance:
     - target: {fileID: 1859257042038380944, guid: e2ac905c6dc8f3f46bce1c5d6812ee1a, type: 3}
       propertyPath: m_Name
       value: MapLV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859257042038380944, guid: e2ac905c6dc8f3f46bce1c5d6812ee1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5537717133404983108, guid: e2ac905c6dc8f3f46bce1c5d6812ee1a, type: 3}
       propertyPath: m_LocalPosition.x

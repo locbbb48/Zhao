@@ -22,7 +22,6 @@ public class Chest : InteractedItem
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("Chest opened!");
             UIManager.Instance.ShowNoti("Chest opened!");
 
             foreach (var item in items)

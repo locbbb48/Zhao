@@ -11,8 +11,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public Player player;
+
     [SerializeField] private Light2D light2D;
-    [SerializeField] private bool isLightOn = false;
+    public bool isLightOn = false;
 
     [SerializeField] private List<Map> maps = new List<Map>();
     [SerializeField] private int currentMapIndex = 0;
@@ -36,6 +38,10 @@ public class GameManager : MonoBehaviour
 
         if (maps.Count > 0)
         {
+            foreach (Map map in maps)
+            {
+                map.gameObject.SetActive(false);
+            }
             maps[currentMapIndex].gameObject.SetActive(true);
         }
     }
@@ -46,10 +52,18 @@ public class GameManager : MonoBehaviour
 
     public void LightManager()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    isLightOn = !isLightOn;
+        //    light2D.enabled = isLightOn;
+        //}
+        if(isLightOn)
         {
-            isLightOn = !isLightOn;
-            light2D.enabled = isLightOn;
+            light2D.enabled = true;
+        }
+        else
+        {
+            light2D.enabled = false;
         }
     }
 

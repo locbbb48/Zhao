@@ -27,7 +27,6 @@ public class Player : ObjectAbstact
         animator = GetComponent<Animator>();
         HPText.text = currentHP.ToString();
 
-        //StartCoroutine(RemoveHP(0.1f));
     }
 
 
@@ -81,14 +80,20 @@ public class Player : ObjectAbstact
         }
     }
 
-    protected IEnumerator RemoveHP(float hp)
+    public IEnumerator RemoveHPbyTime(float hp, float duration)
     {
-        while (currentHP > 0)
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
         {
             TakeDamage(hp);
             yield return new WaitForSeconds(1f);
+            elapsedTime += 1f;
         }
+        UIManager.Instance.ShowNoti("Poison out of effect.");
     }
+
+
 
     public void SetCurHpPlayer(float hp)
     {
@@ -106,4 +111,6 @@ public class Player : ObjectAbstact
     {
         maxHP += hp;
     }
+
+
 }

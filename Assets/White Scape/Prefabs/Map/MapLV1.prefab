@@ -12771,7 +12771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509279703293269106}
-  - component: {fileID: 3640285897213493020}
+  - component: {fileID: 9024709691755521489}
   m_Layer: 0
   m_Name: MapLV1
   m_TagString: Map
@@ -12799,7 +12799,7 @@ Transform:
   - {fileID: 5512712258878191402}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3640285897213493020
+--- !u!114 &9024709691755521489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12808,7 +12808,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3956468783846399429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 757e092c251904a44b48c8874df04306, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a75a6d1c3a87b941826a905b7cd9739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 3956468783846399429}

@@ -35,12 +35,12 @@ public class Lock : MonoBehaviour
             {
                 Bag.Instance.UseItem(0, 1);
                 isUnlocked = true;
-                UIManager.Instance.ShowNoti("Unlocked", 1.0f);
+                UIManager.Instance.ShowNoti("Unlocked");
                 this.gameObject.SetActive(false);
             }
             else
             {
-                UIManager.Instance.ShowNoti("You don't have the Key.", 1.0f);
+                UIManager.Instance.ShowNoti("You don't have the Key.");
             }
         }
     }
