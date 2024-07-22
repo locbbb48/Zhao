@@ -2,7 +2,9 @@
     contact : builoc08042004@gmail.com
 */
 
+using TMPro;
 using UnityEngine;
+
 
 public class Map : MonoBehaviour
 {
@@ -26,5 +28,21 @@ public class Map : MonoBehaviour
         {
             player.transform.position = startPoint.transform.position;
         }
+    }
+
+    public int PickUpItemLeft()
+    {
+        PickUpItem[] items = GetComponentsInChildren<PickUpItem>();
+        int count = 0;
+
+        foreach (var item in items)
+        {
+            if (!item.isPickUped)
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 }

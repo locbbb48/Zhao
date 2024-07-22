@@ -34,6 +34,8 @@ public class UIManager : MonoBehaviour
     public GameObject nextMapPanel;
     public Button NoButton;
     public Button YesButton;
+    public TMP_Text pickupItemLeft;
+
 
     [SerializeField] private List<GameObject> panels;
 
