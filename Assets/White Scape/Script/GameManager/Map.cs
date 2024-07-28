@@ -45,4 +45,19 @@ public class Map : MonoBehaviour
 
         return count;
     }
+
+    public int InteractedItemLeft()
+    {
+        InteractedItem[] items = GetComponentsInChildren<InteractedItem>();
+        int count = 0;
+
+        foreach (var item in items)
+        {
+            if (item != null)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
 }

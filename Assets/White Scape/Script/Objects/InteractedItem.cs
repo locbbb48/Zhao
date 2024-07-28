@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class InteractedItem : MonoBehaviour
 {
+
     [SerializeField] protected bool playerInRange = false;
 
     protected void OnTriggerEnter2D(Collider2D other)

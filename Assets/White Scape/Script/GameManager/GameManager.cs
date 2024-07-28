@@ -48,7 +48,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         LightManager();
-        UIManager.Instance.pickupItemLeft.text = "Number of unpicked items: " + maps[currentMapIndex].PickUpItemLeft().ToString();
+        UIManager.Instance.pickupItemLeft.text = "Number of unpicked items: " + maps[currentMapIndex].PickUpItemLeft().ToString()
+            + "and " + maps[currentMapIndex].InteractedItemLeft().ToString() + "secret in this Map";
     }
 
     public void LightManager()
