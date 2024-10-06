@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6181374223016775474}
   m_Layer: 0
   m_Name: Ws_Block
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,3 +148,4 @@ MonoBehaviour:
   speed: 1
   healthBar: {fileID: 0}
   hitEffect: {fileID: 4277121173247598384, guid: 6f072c86ff4f3134c88d8e902e7ff218, type: 3}
+  isCol: 0

@@ -50,7 +50,8 @@ MonoBehaviour:
   poisionEffect: {fileID: 6479425050241898065}
   Slim: {fileID: 7196880150417780693}
   dmg: 0.5
-  dur: 20
+  dur: -1
+  isCol: 0
 --- !u!61 &1336087876737628896
 BoxCollider2D:
   m_ObjectHideFlags: 0

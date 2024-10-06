@@ -1,0 +1,3 @@
+viết tiếp enemy.cs.  -done-
+chỉnh sửa Player và hệ thống trừ máu.	-done-
+viết tiếp logic player và hệ thống tấn công, enemy.

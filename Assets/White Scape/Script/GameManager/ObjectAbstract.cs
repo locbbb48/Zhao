@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class ObjectAbstact : MonoBehaviour
+public abstract class ObjectAbstract : MonoBehaviour
 {
     [SerializeField] protected float maxHP = 100;
     [SerializeField] protected float currentHP;

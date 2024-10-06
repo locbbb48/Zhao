@@ -1,4 +1,4 @@
-/*	  - Codeby Bui Thanh Loc -
+﻿/*	  - Codeby Bui Thanh Loc -
 	contact : builoc08042004@gmail.com
 */
 
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Player : ObjectAbstact
+public class Player : ObjectAbstract
 {
 
     private Animator animator;
@@ -19,6 +19,11 @@ public class Player : ObjectAbstact
     [SerializeField] private Transform flashlight;
 
     public TMP_Text HPText;
+
+    [SerializeField] private float playerDame = 10f; // Sát thương người chơi gây ra
+    [SerializeField] private float attackCooldown = 0.5f;  // Thời gian chờ giữa các đòn tấn công
+    [SerializeField] private float attackRange = 1f;       // Bán kính tấn công theo một hướng
+    private bool canAttack = true;
 
     protected override void Start()
     {
@@ -44,7 +49,10 @@ public class Player : ObjectAbstact
         }
         FaceMove();
         Move();
-        Fight();
+        if (Input.GetKeyDown(KeyCode.Return) && canAttack && GameManager.Instance.isHaveDagger)
+        {
+            StartCoroutine(Fight());
+        }
         RotateFlashlight();
     }
 
@@ -63,12 +71,55 @@ public class Player : ObjectAbstact
         transform.position += move * speed * Time.deltaTime;
     }
 
-    void Fight()
+    IEnumerator Fight()
     {
-        if(Input.GetKeyDown(KeyCode.Return) && GameManager.Instance.isHaveDagger)
+        canAttack = false;
+
+        // Bắt đầu tấn công, chạy animation tấn công
+        animator.SetTrigger("fight");
+
+        // Xác định hướng tấn công dựa trên hướng di chuyển của Player
+        Vector2 attackDirection = lastMovement.normalized; // Hướng cuối cùng của Player
+        Vector2 attackCenter = (Vector2)transform.position + attackDirection * attackRange / 2;
+
+        // Tạo vùng tấn công hình chữ nhật (hoặc sử dụng hình vuông tùy ý)
+        Vector2 attackSize = new Vector2(attackRange, attackRange / 2);  // Kích thước vùng tấn công
+
+        // Tìm các đối tượng trong vùng tấn công theo hướng hiện tại
+        Collider2D[] hits = Physics2D.OverlapBoxAll(attackCenter, attackSize, 0f);
+
+        // Kiểm tra từng đối tượng
+        if (hits.Length > 0)
         {
-            animator.SetTrigger("fight");
+            foreach (var hit in hits)
+            {
+                ObjectAbstract enemy = hit.GetComponent<ObjectAbstract>();
+                if (enemy != null && hit.gameObject.CompareTag("Enemy"))
+                {
+                    // Tấn công kẻ địch, trừ HP
+                    enemy.TakeDamage(playerDame);
+                }
+            }
         }
+        else
+        {
+            Debug.Log("No enemy in Range!");
+        }
+
+        // Đợi cooldown tấn công
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
+    }
+
+    // Vẽ vùng tấn công khi chọn nhân vật (dành cho debug)
+    private void OnDrawGizmosSelected()
+    {
+        Vector2 attackDirection = lastMovement.normalized;
+        Vector2 attackCenter = (Vector2)transform.position + attackDirection * attackRange / 2;
+        Vector2 attackSize = new Vector2(attackRange, attackRange / 2);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(attackCenter, attackSize);
     }
 
     void RotateFlashlight()
@@ -80,20 +131,37 @@ public class Player : ObjectAbstact
         }
     }
 
-    public IEnumerator RemoveHPbyTime(float hp, float duration)
+    public IEnumerator RemoveHPbyTime(float hp, float duration = -1f)
     {
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration)
+        // Trường hợp trừ HP mãi mãi
+        if (duration == -1f)
         {
-            TakeDamage(hp);
-            yield return new WaitForSeconds(1f);
-            elapsedTime += 1f;
+            while (true) // Vòng lặp vô hạn
+            {
+                TakeDamage(hp);
+                yield return new WaitForSeconds(1f);
+            }
         }
-        UIManager.Instance.ShowNoti("Poison out of effect.");
+        else // Trường hợp có thời gian giới hạn
+        {
+            while (elapsedTime < duration)
+            {
+                TakeDamage(hp);
+                yield return new WaitForSeconds(1f);
+                elapsedTime += 1f;
+            }
+
+            UIManager.Instance.ShowNoti("Poison out of effect.");
+        }
     }
 
 
+    public float getHP()
+    {
+        return currentHP;
+    }
 
     public void SetCurHpPlayer(float hp)
     {

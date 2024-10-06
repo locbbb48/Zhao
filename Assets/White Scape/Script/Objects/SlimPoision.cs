@@ -9,7 +9,7 @@ public class SlimPoision : MonoBehaviour
     [SerializeField] private ParticleSystem poisionEffect;
     [SerializeField] private GameObject Slim;
     [SerializeField] private float dmg = 0.5f;
-    [SerializeField] private float dur = 20f;
+    [SerializeField] private float dur = 100f;
     [SerializeField] private bool isCol = false;
 
     private void Awake()
