@@ -158,7 +158,7 @@ public class Player : ObjectAbstract
     }
 
 
-    public float getHP()
+    public float getCurHP()
     {
         return currentHP;
     }
@@ -173,6 +173,16 @@ public class Player : ObjectAbstract
         {
             currentHP = hp;
         }
+    }
+
+    public float getAttackCooldown()
+    {
+        return attackCooldown;
+    }
+
+    public void SetAttackCooldown(float att)
+    {
+        attackCooldown = att;
     }
 
     public void AddMaxHpPlayer(float hp)

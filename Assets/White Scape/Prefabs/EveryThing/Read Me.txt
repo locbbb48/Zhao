@@ -109,14 +109,14 @@ Phase 3 is optional.
 If you are looking for even more enemies then check out my second enemy pack: 
 ENEMY GALORE 2: https://assetstore.unity.com/packages/2d/characters/enemy-galore-2-pixel-art-209068
 
-If you have any other questions you can check my discord where I will answer and help you use my assets. 
+If you have any collision questions you can check my discord where I will answer and help you use my assets. 
 DISCORD LINK: https://discord.com/invite/jmf4pzv5Fj
 
 If you want to support me you can check out my Patreon. This allows me to focus on making more assets and releasing them for free assets!
 PATREON LINK: https://www.patreon.com/admurin
 
 
-Don't forget to leave a review and check my other assets!
+Don't forget to leave a review and check my collision assets!
 
 Thank you.
 Admurin

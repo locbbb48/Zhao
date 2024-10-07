@@ -145,12 +145,12 @@ namespace LutLight2D
             return new Vector3(color.r, color.g, color.b);
         }
         
-        public static Vector3 Mul(this Vector3 thisVector, Vector3 otherVector)
+        public static Vector3 Mul(this Vector3 thisVector, Vector3 collisionVector)
         {
             return new Vector3(
-                thisVector.x * otherVector.x, 
-                thisVector.y * otherVector.y,
-                thisVector.z * otherVector.z);
+                thisVector.x * collisionVector.x, 
+                thisVector.y * collisionVector.y,
+                thisVector.z * collisionVector.z);
         }
         
         public static bool InRange(this int number, int min, int max)

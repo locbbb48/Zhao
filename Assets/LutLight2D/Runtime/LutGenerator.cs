@@ -34,7 +34,7 @@ namespace LutLight2D
         
         [Header("Advanced")]
         [Tooltip("Size of the lut table, can be increased if have color indexing problems." +
-                 " In case the palette has colors that are close to each other.")]
+                 " In case the palette has colors that are close to each collision.")]
         public  LutSize        _lutSize;
         [Tooltip("Blending between default lut and formed with gradient ramps. Basically weight of lut changes.")]
         [HideInInspector] [Range(0, 1)]

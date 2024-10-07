@@ -20,7 +20,7 @@ public class CrackWall : ObjectAbstract
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject == GameManager.Instance.player.gameObject)
         {
             isCol = true;
             StartCoroutine(CheckForDamage(collision));
@@ -29,7 +29,7 @@ public class CrackWall : ObjectAbstract
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject == GameManager.Instance.player.gameObject)
         {
             isCol = false;
         }
@@ -46,7 +46,7 @@ public class CrackWall : ObjectAbstract
                 particle.transform.position = transform.position;
                 particle.gameObject.SetActive(true);
 
-                yield return new WaitForSeconds(particle.main.duration);
+                yield return new WaitForSeconds(GameManager.Instance.player.getAttackCooldown());
 
                 ParticlePool.Instance.ReturnObject(particle);
             }

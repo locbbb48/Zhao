@@ -12,9 +12,9 @@ public class EndPoint : MonoBehaviour
     {
         box = GetComponent<BoxCollider2D>();
     }
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.CompareTag("Player") && !isCol)
+        if (collision.gameObject == GameManager.Instance.player.gameObject && !isCol)
         {
             isCol = true;
             UIManager.Instance.nextMapPanel.gameObject.SetActive(true);
@@ -22,9 +22,9 @@ public class EndPoint : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject == GameManager.Instance.player.gameObject)
         {
             isCol = false;
         }

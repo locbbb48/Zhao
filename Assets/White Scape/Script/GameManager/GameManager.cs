@@ -34,8 +34,6 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
 
-
-
         if (maps.Count > 0)
         {
             foreach (Map map in maps)

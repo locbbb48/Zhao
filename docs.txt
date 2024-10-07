@@ -1,3 +1,8 @@
 viết tiếp enemy.cs.  -done-
 chỉnh sửa Player và hệ thống trừ máu.	-done-
-viết tiếp logic player và hệ thống tấn công, enemy.
+tạm thời bỏ shop. 	-done-
+viết lại thời gian tạo hiệu ứng của crackWall -done-
+viết tiếp logic player và hệ thống tấn công, enemy.	-done-
+Viết Rat.cs, hệ thống nhận dame.	-done-
+UI trừ máu	-done-
+Điều chỉnh lại hệ thống color: notiText, hpPlayer, hpEnemy

@@ -29,6 +29,7 @@ public abstract class ObjectAbstract : MonoBehaviour
             currentHP = 0;
             OnDeath();
         }
+        UIManager.Instance.ShowDamage(-amount, transform.position + new Vector3(0, 1f, 0));
         UpdateHealthBar();
     }
 

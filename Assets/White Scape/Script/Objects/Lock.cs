@@ -9,18 +9,18 @@ public class Lock : MonoBehaviour
     [SerializeField] private bool isUnlocked = false;
     private bool playerInRange = false;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Player") && !isUnlocked)
+        if (collision.gameObject == GameManager.Instance.player.gameObject && !isUnlocked)
         {
             UIManager.Instance.ShowNoti("Press Enter to Unlock.");
             playerInRange = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject == GameManager.Instance.player.gameObject)
         {
             playerInRange = false;
         }

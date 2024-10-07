@@ -59,6 +59,40 @@ public class UIManager : MonoBehaviour
         NoButton.onClick.AddListener(() => HandleNextMap(false));
     }
 
+    public void ShowDamage(float damageAmount, Vector3 position)
+    {
+        // Lấy một instance của DamageText từ Object Pool
+        TextMesh damageText = ShowDameTextPool.Instance.GetObject();
+        damageText.transform.position = position;
+        damageText.text = damageAmount.ToString();
+        damageText.color = Color.red;
+        damageText.gameObject.SetActive(true);
+
+        // Bắt đầu Coroutine để xử lý hiệu ứng
+        StartCoroutine(MoveAndFade(damageText));
+    }
+
+    private IEnumerator MoveAndFade(TextMesh damageText)
+    {
+        float displayDuration = 1f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < displayDuration)
+        {
+            // Di chuyển lên trên và làm mờ
+            damageText.transform.position += new Vector3(0, Time.deltaTime, 0);
+            Color color = damageText.color;
+            color.a = Mathf.Lerp(1f, 0f, elapsedTime / displayDuration);
+            damageText.color = color;
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Trả lại đối tượng về Object Pool
+        ShowDameTextPool.Instance.ReturnObject(damageText);
+    }
+
     public void ShowNoti(string message, float duration = 0.5f)
     {
         notificationQueue.Enqueue(message);
