@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,8 +21,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Player player;
 
     private Queue<string> notificationQueue = new Queue<string>();
+    private List<string> notificationLog = new List<string>(); // Danh sách lưu trữ thông báo
     private bool isShowingNotification = false;
     public TMP_Text debugText;
+    public GameObject logPanel;   // Panel hiển thị lịch sử thông báo
+    public TMP_Text logText;
 
     public GameObject bagIcon;
     public GameObject bagPanel;
@@ -96,6 +100,7 @@ public class UIManager : MonoBehaviour
     public void ShowNoti(string message, float duration = 0.5f)
     {
         notificationQueue.Enqueue(message);
+        notificationLog.Add(message);
         if (!isShowingNotification)
         {
             StartCoroutine(ShowNotification(duration));
@@ -119,6 +124,18 @@ public class UIManager : MonoBehaviour
         isShowingNotification = false;
     }
 
+    public void ShowNotificationLog()
+    {
+        logText.text = ""; // Xóa text cũ
+        foreach (string noti in notificationLog)
+        {
+            logText.text += noti + "\n"; // Hiển thị tất cả thông báo đã lưu
+        }
+        logPanel.SetActive(true); // Hiển thị panel chứa log
+    }
+
+    
+    
     private bool ClickOn(GameObject obj)
     {
         Vector3 mousePos = Input.mousePosition;
