@@ -1,3 +1,4 @@
+Điều chỉnh lại hệ thống color: notiText, hpPlayer, hpEnemy	-done-
+Update hiển thị UI: hiển thi trừ Hp, màu sắc, panel, ...	-done-
+Xây dung lại AI cho Rat(tìm đường đến Player)
 
-Điều chỉnh lại hệ thống color: notiText, hpPlayer, hpEnemy
-Tạo UI Panel : lưu lại các thông báo 

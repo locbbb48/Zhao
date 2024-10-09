@@ -61,6 +61,12 @@ public class CrackWall : ObjectAbstract
         }
     }
 
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        UIManager.Instance.ShowDamage(-damage, transform.position + new Vector3(0, 1f, -10), Color.white);
+    }
+
     protected override void OnDeath()
     {
         base.OnDeath();

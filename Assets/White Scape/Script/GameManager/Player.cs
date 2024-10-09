@@ -131,6 +131,12 @@ public class Player : ObjectAbstract
         }
     }
 
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        UIManager.Instance.ShowDamage(-damage, transform.position + new Vector3(0, 1f, -10), Color.red);
+    }
+
     public IEnumerator RemoveHPbyTime(float hp, float duration = -1f)
     {
         float elapsedTime = 0f;

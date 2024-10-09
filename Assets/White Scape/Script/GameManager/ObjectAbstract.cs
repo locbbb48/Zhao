@@ -1,4 +1,4 @@
-/*	  - Codeby Bui Thanh Loc -
+﻿/*	  - Codeby Bui Thanh Loc -
 	contact : builoc08042004@gmail.com
 */
 
@@ -21,6 +21,7 @@ public abstract class ObjectAbstract : MonoBehaviour
         UpdateHealthBar();
     }
 
+    //Khi gọi hàm này, nên nhớ set UIShowDame(amount là damage) với color tùy chỉnh: UIManager.Instance.ShowDamage(-damage, transform.position + new Vector3(0, 1f, -10), Color.white);
     public virtual void TakeDamage(float amount)
     {
         currentHP -= amount;
@@ -29,7 +30,6 @@ public abstract class ObjectAbstract : MonoBehaviour
             currentHP = 0;
             OnDeath();
         }
-        UIManager.Instance.ShowDamage(-amount, transform.position + new Vector3(0, 1f, 0));
         UpdateHealthBar();
     }
 
@@ -53,6 +53,6 @@ public abstract class ObjectAbstract : MonoBehaviour
 
     protected virtual void OnDeath()
     {
-        Debug.Log("Object has died");
+        Debug.Log($"{GetType().Name} has died");
     }
 }

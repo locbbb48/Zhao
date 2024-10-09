@@ -36,6 +36,12 @@ public abstract class EnemyAbstract : ObjectAbstract
         }
     }
 
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        UIManager.Instance.ShowDamage(-damage, transform.position + new Vector3(0, 1f, -10), Color.blue);
+    }
+
     protected void RotateTowardsPlayer()
     {
         // Lấy scale ban đầu của Enemy
@@ -52,5 +58,11 @@ public abstract class EnemyAbstract : ObjectAbstract
             // Player ở bên phải, quay mặt sang phải
             transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
         }
+    }
+
+    protected override void OnDeath()
+    {
+        base.OnDeath();
+        UIManager.Instance.ShowNoti($"You've killed a <color=red>{GetType().Name}</color>");
     }
 }

@@ -14,10 +14,10 @@ public class Rat : EnemyAbstract
 
     protected override void Start()
     {
+        maxHP = 30f;
         base.Start();
         speed = 3f;
-        dameAttack = 3f;
-        currentHP = 30f;
+        dameAttack = 1f;
     }
 
     protected override void Awake()
@@ -104,7 +104,9 @@ public class Rat : EnemyAbstract
 
     protected override void OnDeath()
     {
+        base.OnDeath();
         animator.SetTrigger("Death");
-        Destroy(gameObject, 2f);  // Delay để cho animation Death chạy
+        //UIManager.Instance.ShowNoti($"You've kill a <color=blue>Rat</color>");
+        gameObject.SetActive(false);
     }
 }

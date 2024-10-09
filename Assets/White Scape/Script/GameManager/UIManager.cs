@@ -63,13 +63,13 @@ public class UIManager : MonoBehaviour
         NoButton.onClick.AddListener(() => HandleNextMap(false));
     }
 
-    public void ShowDamage(float damageAmount, Vector3 position)
+    public void ShowDamage(float damageAmount, Vector3 position, Color color)
     {
         // Lấy một instance của DamageText từ Object Pool
         TextMesh damageText = ShowDameTextPool.Instance.GetObject();
         damageText.transform.position = position;
         damageText.text = damageAmount.ToString();
-        damageText.color = Color.red;
+        damageText.color = color;
         damageText.gameObject.SetActive(true);
 
         // Bắt đầu Coroutine để xử lý hiệu ứng
@@ -101,6 +101,7 @@ public class UIManager : MonoBehaviour
     {
         notificationQueue.Enqueue(message);
         notificationLog.Add(message);
+        logText.text += message + "\n";
         if (!isShowingNotification)
         {
             StartCoroutine(ShowNotification(duration));
@@ -126,16 +127,11 @@ public class UIManager : MonoBehaviour
 
     public void ShowNotificationLog()
     {
-        logText.text = ""; // Xóa text cũ
-        foreach (string noti in notificationLog)
-        {
-            logText.text += noti + "\n"; // Hiển thị tất cả thông báo đã lưu
-        }
         logPanel.SetActive(true); // Hiển thị panel chứa log
     }
 
-    
-    
+
+
     private bool ClickOn(GameObject obj)
     {
         Vector3 mousePos = Input.mousePosition;
