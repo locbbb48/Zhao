@@ -3,7 +3,6 @@
 */
 
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -13,15 +12,15 @@ public class Player : ObjectAbstract
     private Animator animator;
     [SerializeField] private float H, V;
     [SerializeField] private Vector2 movement;
-    [SerializeField] private Vector2 lastMovement;
+    [SerializeField] Vector2 lastMovement;
     [SerializeField] private float _speed = 5f;
 
     [SerializeField] private Transform flashlight;
 
     public TMP_Text HPText;
 
-    [SerializeField] private float playerDame = 10f; // Sát thương người chơi gây ra
-    [SerializeField] private float attackCooldown = 0.5f;  // Thời gian chờ giữa các đòn tấn công
+    [SerializeField] private float playerDame = 10f; 
+    [SerializeField] private float attackCooldown = 0.5f;  
     [SerializeField] private float attackRange = 1f;       // Bán kính tấn công theo một hướng
     private bool canAttack = true;
 
@@ -31,7 +30,6 @@ public class Player : ObjectAbstract
         speed = _speed;
         animator = GetComponent<Animator>();
         HPText.text = currentHP.ToString();
-
     }
 
 
@@ -94,7 +92,7 @@ public class Player : ObjectAbstract
             foreach (var hit in hits)
             {
                 ObjectAbstract enemy = hit.GetComponent<ObjectAbstract>();
-                if (enemy != null && hit.gameObject.CompareTag("Enemy"))
+                if (enemy != null && enemy.gameObject.activeInHierarchy && hit.gameObject.CompareTag("Enemy"))
                 {
                     // Tấn công kẻ địch, trừ HP
                     enemy.TakeDamage(playerDame);
@@ -159,7 +157,7 @@ public class Player : ObjectAbstract
                 elapsedTime += 1f;
             }
 
-            UIManager.Instance.ShowNoti("Poison out of effect.");
+            UIManager.Instance.ShowLocalizedNoti("POISON_EFFECT_END", 0.5f);
         }
     }
 

@@ -172,6 +172,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   animator: {fileID: 1559457044575140290}
   dameAttack: 1
+  hitEffect: {fileID: 4277121173247598384, guid: f2bb0ba2dee328042a89d03c67219da3, type: 3}
   detectionRadius: 5
   attackCooldown: 0.5
 --- !u!50 &4554262042198761345

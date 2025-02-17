@@ -6,14 +6,13 @@ using UnityEngine;
 
 public class InteractedItem : MonoBehaviour
 {
-
     [SerializeField] protected bool playerInRange = false;
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == GameManager.Instance.player.gameObject)
         {
-            UIManager.Instance.ShowNoti("Press Enter.");
+            UIManager.Instance.ShowLocalizedNoti("INTERACT_PRESS_ENTER", 0.5f);
             playerInRange = true;
         }
     }

@@ -39,13 +39,15 @@ public class Bag : MonoBehaviour
             {
                 inBagItem.totalQuantity += puI.quantity;
                 puI.isPickUped = true;
-                UIManager.Instance.ShowNoti(
-                    $"Added <color=yellow>{puI.quantity}</color> {puI.Name}(s) to the bag. Total: <color=yellow>{inBagItem.totalQuantity}</color>",1f
-                );
+                UIManager.Instance.ShowLocalizedNoti(
+                    "BAG_ITEM_ADDED", 1f, puI.quantity, puI.Name, inBagItem.totalQuantity
+            );
             }
             else
             {
-                UIManager.Instance.ShowNoti($"Cannot add <color=yellow>{puI.quantity}</color> {puI.Name}(s) to the bag. Exceeds maximum quantity.");
+                UIManager.Instance.ShowLocalizedNoti(
+                    "BAG_ITEM_EXCEED", 1f, puI.quantity, puI.Name
+            );
             }
         }
         else
@@ -54,7 +56,9 @@ public class Bag : MonoBehaviour
             inBagItem.totalQuantity = puI.quantity;
             inBagItems.Add(inBagItem);
             puI.isPickUped = true;
-            UIManager.Instance.ShowNoti($"Added <color=yellow>{puI.quantity}</color> {puI.Name}(s) to the bag. Total: <color=yellow>{inBagItem.totalQuantity}</color>",1f);
+            UIManager.Instance.ShowLocalizedNoti(
+                "BAG_ITEM_ADDED", 1f, puI.quantity, puI.Name, inBagItem.totalQuantity
+            );
         }
     }
 
@@ -70,21 +74,29 @@ public class Bag : MonoBehaviour
             {
                 inBagItem.totalQuantity -= quantity;
 
-                UIManager.Instance.ShowNoti($"Used <color=yellow>{quantity}</color> of {itemName}. Remaining: <color=yellow>{inBagItem.totalQuantity}</color>");
+                UIManager.Instance.ShowLocalizedNoti(
+                    "BAG_ITEM_USED", 1f, quantity, itemName, inBagItem.totalQuantity
+                );
 
                 if (inBagItem.totalQuantity <= 0)
                 {
-                    UIManager.Instance.ShowNoti($"{itemName} is completely used up.");
+                    UIManager.Instance.ShowLocalizedNoti(
+                        "BAG_ITEM_EMPTY", 1f, itemName
+                    );
                 }
             }
             else
             {
-                UIManager.Instance.ShowNoti($"Not enough {itemName} to use.");
+                UIManager.Instance.ShowLocalizedNoti(
+                "BAG_ITEM_NOT_ENOUGH", 1f, itemName
+                );
             }
         }
         else
         {
-            UIManager.Instance.ShowNoti($"Item with ID {itemId} not found in the bag.");
+            UIManager.Instance.ShowLocalizedNoti(
+            "BAG_ITEM_NOT_FOUND_ID", 1f, itemId
+            );
         }
     }
 
@@ -100,7 +112,9 @@ public class Bag : MonoBehaviour
         }
         else
         {
-            UIManager.Instance.ShowNoti($"Item with name {itemName} not found in the bag.");
+            UIManager.Instance.ShowLocalizedNoti(
+            "BAG_ITEM_NOT_FOUND_NAME", 1f, itemName
+            );
             return 0;
         }
     }

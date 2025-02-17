@@ -1,4 +1,26 @@
-Điều chỉnh lại hệ thống color: notiText, hpPlayer, hpEnemy	-done-
-Update hiển thị UI: hiển thi trừ Hp, màu sắc, panel, ...	-done-
+Fix bug CraveA ( .json file) 	-done-
+Tạo particle khi attack enemy, xử lí pool	-done-
+
 Xây dung lại AI cho Rat(tìm đường đến Player)
+
+xây dựng hệ thống câu hỏi
+
+Xây dung new enemy: Bat
+
+Tạo hệ thống ngôn ngữ vi/en  -done-
+Thêm và sửa lại phần tiếng việt cho game.
+
+Tạo phòng hướng dẫn, phòng 1 - hóa học:
+	
+
+
+**Phòng 1 - Chemistry - Hóa học**
+- Key của phòng: DyNaMo, người chơi cần tìm ra chữ này
+- Hint: 
+	+ Michael Faraday(người phát minh ra Dynamo, tìm ra benzen).
+	+ Mendeleev --> Bảng tuần hoàn hóa học.
+	+ Benzen: C6H6 --> 2 chữ số 66: tìm số thự tự 66 trong bảng tuần hoàn: Dy.
+	+ Sodium: Kitchen - Soda, glutamate, salt --> natri
+	+ Mo: 42: 0x464F52545974776F,  Kinh thánh Gutenberg(Kinh thánh 42 dòng)
+
 

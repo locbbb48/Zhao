@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "question": "Thủ đô của Việt Nam là gì?",
+            "answers": [
+                "Hà Nội",
+                "TP Hồ Chí Minh",
+                "Đà Nẵng",
+                "Huế"
+            ],
+            "correctAnswer": "Hà Nội"
+        },
+        {
+            "question": "Số nguyên tố đầu tiên là gì?",
+            "answers": [
+                "1",
+                "2",
+                "3",
+                "5"
+            ],
+            "correctAnswer": "2"
+        }
+    ]
+}

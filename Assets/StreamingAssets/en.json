@@ -1,0 +1,114 @@
+{
+  "items": [
+    {
+      "key": "POISON_EFFECT_END",
+      "value": "Poison out of effect."
+    },
+
+
+    {
+      "key": "NEW_CHALLENGE",
+      "value": "You are in new challenge"
+    },
+    {
+      "key": "NO_MORE_MAPS",
+      "value": "Waiting for Update new Map..."
+    },
+
+
+    {
+      "key": "INTERACT_PRESS_ENTER",
+      "value": "Press Enter."
+    },
+
+
+    {
+      "key": "CHEST_OPENED",
+      "value": "Chest opened!"
+    },
+
+
+    {
+      "key": "BAG_ITEM_ADDED",
+      "value": "Added <color=yellow>{0}</color> {1}(s) to the bag. Total: <color=yellow>{2}</color>"
+    },
+    {
+      "key": "BAG_ITEM_EXCEED",
+      "value": "Cannot add <color=yellow>{0}</color> {1}(s) to the bag. Exceeds maximum quantity."
+    },
+    {
+      "key": "BAG_ITEM_USED",
+      "value": "Used <color=yellow>{0}</color> of {1}. Remaining: <color=yellow>{2}</color>"
+    },
+    {
+      "key": "BAG_ITEM_EMPTY",
+      "value": "{0} is completely used up."
+    },
+    {
+      "key": "BAG_ITEM_NOT_ENOUGH",
+      "value": "Not enough {0} to use."
+    },
+    {
+      "key": "BAG_ITEM_NOT_FOUND_ID",
+      "value": "Item with ID {0} not found in the bag."
+    },
+    {
+      "key": "BAG_ITEM_NOT_FOUND_NAME",
+      "value": "Item with name {0} not found in the bag."
+    },
+    {
+      "key": "SHOP_BOUGHT_ITEM",
+      "value": "Bought this Item!"
+    },
+    {
+      "key": "SHOP_INSUFFICIENT_COINS",
+      "value": "You don't have enough coin!"
+    },
+
+
+    {
+      "key": "LOCK_PRESS_ENTER",
+      "value": "Press Enter to Unlock."
+    },
+    {
+      "key": "LOCK_UNLOCKED",
+      "value": "Unlocked"
+    },
+    {
+      "key": "LOCK_NO_KEY",
+      "value": "You don't have the Key."
+    },
+
+
+    {
+      "key": "ENEMY_KILLED",
+      "value": "You've killed a <color=red>{0}</color>"
+    },
+
+    {
+      "key": "RAT_KILLED",
+      "value": "You've killed a <color=blue>Rat</color>"
+    },
+
+
+    {
+      "key": "POISONED",
+      "value": "<color=red>You have been poisoned !!!</color>"
+    },
+
+
+    {
+      "key": "QA_REMEMBER",
+      "value": "Remember the question !"
+    },
+    {
+      "key": "QA_CORRECT",
+      "value": "Correct !"
+    },
+    {
+      "key": "QA_INCORRECT",
+      "value": "Incorrect !"
+    }
+
+  ]
+}

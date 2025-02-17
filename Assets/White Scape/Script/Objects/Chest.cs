@@ -22,7 +22,7 @@ public class Chest : InteractedItem
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.Return))
         {
-            UIManager.Instance.ShowNoti("Chest opened!");
+            UIManager.Instance.ShowLocalizedNoti("CHEST_OPENED", 0.5f);
 
             foreach (var item in items)
             {

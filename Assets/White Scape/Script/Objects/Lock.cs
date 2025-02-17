@@ -13,7 +13,7 @@ public class Lock : MonoBehaviour
     {
         if (collision.gameObject == GameManager.Instance.player.gameObject && !isUnlocked)
         {
-            UIManager.Instance.ShowNoti("Press Enter to Unlock.");
+            UIManager.Instance.ShowLocalizedNoti("LOCK_PRESS_ENTER", 0.5f);
             playerInRange = true;
         }
     }
@@ -35,12 +35,12 @@ public class Lock : MonoBehaviour
             {
                 Bag.Instance.UseItem(0, 1);
                 isUnlocked = true;
-                UIManager.Instance.ShowNoti("Unlocked");
+                UIManager.Instance.ShowLocalizedNoti("LOCK_UNLOCKED", 0.5f);
                 this.gameObject.SetActive(false);
             }
             else
             {
-                UIManager.Instance.ShowNoti("You don't have the Key.");
+                UIManager.Instance.ShowLocalizedNoti("LOCK_NO_KEY", 0.5f);
             }
         }
     }

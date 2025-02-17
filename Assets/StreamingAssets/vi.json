@@ -1,0 +1,116 @@
+{
+  "items": [
+    {
+      "key": "POISON_EFFECT_END",
+      "value": "Hiệu ứng độc đã hết."
+    },
+
+
+
+    {
+      "key": "NEW_CHALLENGE",
+      "value": "Bạn đang trong thử thách mới"
+    },
+    {
+      "key": "NO_MORE_MAPS",
+      "value": "Đang chờ cập nhật bản đồ mới..."
+    },
+
+
+    {
+      "key": "INTERACT_PRESS_ENTER",
+      "value": "Nhấn Enter."
+    },
+
+
+    {
+      "key": "CHEST_OPENED",
+      "value": "Rương đã mở!"
+    },
+
+
+    {
+      "key": "BAG_ITEM_ADDED",
+      "value": "Đã thêm <color=yellow>{0}</color> {1} vào túi. Tổng: <color=yellow>{2}</color>"
+    },
+    {
+      "key": "BAG_ITEM_EXCEED",
+      "value": "Không thể thêm <color=yellow>{0}</color> {1} vào túi. Vượt quá số lượng tối đa."
+    },
+    {
+      "key": "BAG_ITEM_USED",
+      "value": "Đã sử dụng <color=yellow>{0}</color> của {1}. Còn lại: <color=yellow>{2}</color>"
+    },
+    {
+      "key": "BAG_ITEM_EMPTY",
+      "value": "{0} đã hết."
+    },
+    {
+      "key": "BAG_ITEM_NOT_ENOUGH",
+      "value": "Không đủ {0} để sử dụng."
+    },
+    {
+      "key": "BAG_ITEM_NOT_FOUND_ID",
+      "value": "Không tìm thấy vật phẩm có ID {0} trong túi."
+    },
+    {
+      "key": "BAG_ITEM_NOT_FOUND_NAME",
+      "value": "Không tìm thấy vật phẩm có tên {0} trong túi."
+    },
+    {
+      "key": "SHOP_BOUGHT_ITEM",
+      "value": "Đã mua vật phẩm này!"
+    },
+    {
+      "key": "SHOP_INSUFFICIENT_COINS",
+      "value": "Bạn không có đủ xu!"
+    },
+
+
+    {
+      "key": "LOCK_PRESS_ENTER",
+      "value": "Nhấn Enter để mở khóa."
+    },
+    {
+      "key": "LOCK_UNLOCKED",
+      "value": "Đã mở khóa"
+    },
+    {
+      "key": "LOCK_NO_KEY",
+      "value": "Bạn không có chìa khóa."
+    },
+
+
+    {
+      "key": "ENEMY_KILLED",
+      "value": "Bạn đã tiêu diệt 1 <color=red>{0}</color>"
+    },
+
+    {
+      "key": "RAT_KILLED",
+      "value": "Bạn đã giết 1 <color=blue>Chuột</color>"
+    },
+
+
+    {
+      "key": "POISONED",
+      "value": "<color=red>Bạn đã bị độc !!!</color>"
+    },
+
+    {
+      "key": "QA_REMEMBER",
+      "value": "Hãy nhớ câu hỏi!"
+    },
+    {
+      "key": "QA_CORRECT",
+      "value": "Chính xác !"
+    },
+    {
+      "key": "QA_INCORRECT",
+      "value": "Không chính xác !"
+    }
+
+
+
+  ]
+}

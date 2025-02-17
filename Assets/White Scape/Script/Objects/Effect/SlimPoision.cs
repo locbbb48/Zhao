@@ -16,11 +16,12 @@ public class SlimPoision : MonoBehaviour
     {
         poisionEffect.gameObject.SetActive(false);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == GameManager.Instance.player.gameObject && !isCol)
+        if (collision.gameObject == GameManager.Instance.player.gameObject && !isCol)
         {
-            UIManager.Instance.ShowNoti("<color=red>You have been poisoned !!!</color>");
+            UIManager.Instance.ShowLocalizedNoti("POISONED", 0.5f);
             isCol = true;
             poisionEffect.gameObject.SetActive(true);
             Slim.SetActive(false);

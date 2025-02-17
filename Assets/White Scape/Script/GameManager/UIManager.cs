@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
@@ -97,6 +96,7 @@ public class UIManager : MonoBehaviour
         ShowDameTextPool.Instance.ReturnObject(damageText);
     }
 
+    // Show Raw Noti
     public void ShowNoti(string message, float duration = 0.5f)
     {
         notificationQueue.Enqueue(message);
@@ -130,6 +130,25 @@ public class UIManager : MonoBehaviour
         logPanel.SetActive(true); // Hiển thị panel chứa log
     }
 
+
+    // Hiển thị thông báo sử dụng localization
+    public void ShowLocalizedNoti(string localizationKey, float duration = 0.5f, params object[] args)
+    {
+        if (LocalizationManager.instance != null && LocalizationManager.instance.isReady)
+        {
+            string localizedMessage = LocalizationManager.instance.GetLocalizedValue(localizationKey);
+            if (args != null && args.Length > 0)
+            {
+                localizedMessage = string.Format(localizedMessage, args);
+            }
+            ShowNoti(localizedMessage, duration);
+        }
+        else
+        {
+            Debug.LogWarning("LocalizationManager not ready! Fallback to key.");
+            ShowNoti(localizationKey, duration);
+        }
+    }
 
 
     private bool ClickOn(GameObject obj)
@@ -184,14 +203,14 @@ public class UIManager : MonoBehaviour
         if (Bag.Instance.inBagItems[1].totalQuantity >= currentCost)
         {
             Bag.Instance.inBagItems[1].totalQuantity -= currentCost;
-            ShowNoti("Bought this Item!");
+            ShowLocalizedNoti("SHOP_BOUGHT_ITEM", 0.5f);
             GameManager.Instance.isHaveDagger = true;
             currentBuyItemButton.SetActive(false);
             buyPanel.SetActive(false);
         }
         else
         {
-            ShowNoti("You don't have enough coin!");
+            ShowLocalizedNoti("SHOP_INSUFFICIENT_COINS", 0.5f);
         }
     }
 

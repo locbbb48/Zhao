@@ -12,6 +12,8 @@ public abstract class EnemyAbstract : ObjectAbstract
     [SerializeField] protected float dameAttack;
     protected Player player;
 
+    [SerializeField] private ParticleSystem hitEffect;
+
     protected override void Start()
     {
         base.Start();
@@ -36,9 +38,25 @@ public abstract class EnemyAbstract : ObjectAbstract
         }
     }
 
+    private IEnumerator MakeParticleSystem()
+    {
+        ParticleSystem particle = ParticlePool.Instance.GetParticle(hitEffect);
+        particle.transform.position = transform.position;
+        particle.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(GameManager.Instance.player.getAttackCooldown());
+
+        ParticlePool.Instance.ReturnParticle(particle);
+
+    }
+
     public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(MakeParticleSystem());
+        }
         UIManager.Instance.ShowDamage(-damage, transform.position + new Vector3(0, 1f, -10), Color.blue);
     }
 
@@ -63,6 +81,6 @@ public abstract class EnemyAbstract : ObjectAbstract
     protected override void OnDeath()
     {
         base.OnDeath();
-        UIManager.Instance.ShowNoti($"You've killed a <color=red>{GetType().Name}</color>");
+        UIManager.Instance.ShowLocalizedNoti("ENEMY_KILLED", 0.5f, GetType().Name);
     }
 }

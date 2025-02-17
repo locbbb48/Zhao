@@ -24,13 +24,20 @@ public abstract class ObjectAbstract : MonoBehaviour
     //Khi gọi hàm này, nên nhớ set UIShowDame(amount là damage) với color tùy chỉnh: UIManager.Instance.ShowDamage(-damage, transform.position + new Vector3(0, 1f, -10), Color.white);
     public virtual void TakeDamage(float amount)
     {
-        currentHP -= amount;
-        if (currentHP < 0)
+        if (gameObject.activeInHierarchy && gameObject != null)
         {
-            currentHP = 0;
-            OnDeath();
+            currentHP -= amount;
+            if (currentHP < 0)
+            {
+                currentHP = 0;
+                OnDeath();
+            }
+            UpdateHealthBar();
         }
-        UpdateHealthBar();
+        else
+        {
+            Debug.Log($"{GetType().Name} has been deactived or is null");
+        }
     }
 
     public virtual void Heal(float amount)

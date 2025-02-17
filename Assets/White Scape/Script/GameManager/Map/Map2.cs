@@ -50,6 +50,6 @@ public class Map2 : Map
             yield return new WaitForSeconds(flashDuration / (flashCount * 2));
         }
         GameManager.Instance.isLightOn = false; // Finally turn off the light
-        UIManager.Instance.ShowNoti("New Challenge: Lights Off !!!", 1f);
+        //UIManager.Instance.ShowNoti("New Challenge: Lights Off !!!", 1f);
     }
 }

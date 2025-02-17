@@ -9,7 +9,6 @@ using UnityEngine;
 public class CrackWall : ObjectAbstract
 {
     [SerializeField] private ParticleSystem hitEffect;
-    [SerializeField] private bool isCol = false;
 
     protected override void Start()
     {
@@ -17,53 +16,24 @@ public class CrackWall : ObjectAbstract
         currentHP = 50;
         maxHP = 100;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private IEnumerator MakeParticleSystem()
     {
-        if (collision.gameObject == GameManager.Instance.player.gameObject)
-        {
-            isCol = true;
-            StartCoroutine(CheckForDamage(collision));
-        }
-    }
+            ParticleSystem particle = ParticlePool.Instance.GetParticle(hitEffect);
+            particle.transform.position = transform.position;
+            particle.gameObject.SetActive(true);
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject == GameManager.Instance.player.gameObject)
-        {
-            isCol = false;
-        }
-    }
+            yield return new WaitForSeconds(GameManager.Instance.player.getAttackCooldown());
 
-    private IEnumerator CheckForDamage(Collision2D collision)
-    {
-        while (isCol)
-        {
-            if (Input.GetKeyDown(KeyCode.Return) && GameManager.Instance.isHaveDagger)
-            {
-
-                ParticleSystem particle = ParticlePool.Instance.GetObject();
-                particle.transform.position = transform.position;
-                particle.gameObject.SetActive(true);
-
-                yield return new WaitForSeconds(GameManager.Instance.player.getAttackCooldown());
-
-                ParticlePool.Instance.ReturnObject(particle);
-            }
-
-            if (currentHP <= 0)
-            {
-                gameObject.SetActive(false);
-                yield break;
-            }
-
-            yield return null;
-        }
+            ParticlePool.Instance.ReturnParticle(particle);      
     }
 
     public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(MakeParticleSystem());
+        }
         UIManager.Instance.ShowDamage(-damage, transform.position + new Vector3(0, 1f, -10), Color.white);
     }
 

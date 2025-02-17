@@ -2,7 +2,6 @@
 	contact : builoc08042004@gmail.com
 */
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,8 +17,13 @@ public class ObjectPool<T> : MonoBehaviour where T : Component
 
     public Queue<T> objects;
 
-    public void Awake()
+    public virtual void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
 
         objects = new Queue<T>();
