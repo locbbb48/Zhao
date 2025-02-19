@@ -26,6 +26,10 @@ public class UIManager : MonoBehaviour
     public GameObject logPanel;   // Panel hiển thị lịch sử thông báo
     public TMP_Text logText;
 
+    [SerializeField] private GameObject inforPanel; // Bảng hiển thị thông tin liên quán đến màn chơi
+    public TMP_Text inforText;
+    public Image inforImage;
+
     public GameObject bagIcon;
     public GameObject bagPanel;
 
@@ -108,6 +112,22 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ShowInforPanel(string message, Sprite image = null) // Hiển thị In4Panel
+    {
+        inforText.text = message;
+        if (image != null)
+        {
+            inforImage.sprite = image;
+            inforImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            inforImage.gameObject.SetActive(false);
+        }
+        inforPanel.SetActive(true);
+    }
+
+
     private IEnumerator ShowNotification(float duration)
     {
         while (notificationQueue.Count > 0)
@@ -151,14 +171,14 @@ public class UIManager : MonoBehaviour
     }
 
 
-    private bool ClickOn(GameObject obj)
-    {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Camera.main.nearClipPlane; 
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+    //private bool ClickOn(GameObject obj)
+    //{
+    //    Vector3 mousePos = Input.mousePosition;
+    //    mousePos.z = Camera.main.nearClipPlane; 
+    //    Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-        return RectTransformUtility.RectangleContainsScreenPoint(obj.GetComponent<RectTransform>(), mousePos);
-    }
+    //    return RectTransformUtility.RectangleContainsScreenPoint(obj.GetComponent<RectTransform>(), mousePos);
+    //}
 
     private void HandleNextMap(bool isNext)
     {
@@ -188,6 +208,15 @@ public class UIManager : MonoBehaviour
     {
         currentCost = cost;
         buyPanel.SetActive(true);
+    }
+
+    public void ClosePanel(GameObject panel) // Button để đóng 1 panel
+    {
+ 
+        if (panel != null)
+        {
+            panel.gameObject.SetActive(false);
+        }
     }
 
     public void HideShopPanel()

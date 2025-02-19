@@ -17,4 +17,9 @@ public class Map1 : Map
             GameManager.Instance.isLightOn = true;
         }
     }
+
+    private void Update()
+    {
+        
+    }
 }
