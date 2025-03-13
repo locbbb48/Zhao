@@ -19436,12 +19436,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3980775266702893283, guid: a07f4c22bd575404db123492095c2fe3, type: 3}
+      propertyPath: items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4955551783480246844, guid: a07f4c22bd575404db123492095c2fe3, type: 3}
       propertyPath: m_Name
       value: Ws_Chest
       objectReference: {fileID: 0}
+    - target: {fileID: 5921996983099396095, guid: a07f4c22bd575404db123492095c2fe3, type: 3}
+      propertyPath: quantity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4366210482981924541, guid: a07f4c22bd575404db123492095c2fe3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a07f4c22bd575404db123492095c2fe3, type: 3}

@@ -5,6 +5,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public abstract class EnemyAbstract : ObjectAbstract
 {
@@ -14,13 +16,23 @@ public abstract class EnemyAbstract : ObjectAbstract
 
     [SerializeField] private ParticleSystem hitEffect;
 
+    [SerializeField] private Vector3 healthBarOffset = new Vector3(0, 0.5f, 0); // Điều chỉnh vị trí thanh máu
+    [SerializeField] private GameObject healthBarPrefab; // Gán Prefab từ Inspector
+
+
     protected override void Start()
     {
-        base.Start();
         player = GameManager.Instance.player;
 
+        // Tạo một instance của healthBar từ Prefab
+        if (healthBarPrefab != null)
+        {
+            GameObject healthBarObject = Instantiate(healthBarPrefab, GameObject.Find("Canvas").transform);
+            healthBar = healthBarObject.GetComponent<Slider>();
+        }
+        base.Start();
     }
-    
+
     protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
@@ -28,13 +40,16 @@ public abstract class EnemyAbstract : ObjectAbstract
 
     protected virtual void Update()
     {
-        if (player != null)
+        RotateTowardsPlayer();
+
+        UpdateHealthBarPosition();
+    }
+
+    private void UpdateHealthBarPosition()
+    {
+        if (healthBar != null)
         {
-            RotateTowardsPlayer();
-        }
-        else
-        {
-            Debug.Log("EnemyAbstract player is null");
+            healthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + healthBarOffset);
         }
     }
 
@@ -62,19 +77,26 @@ public abstract class EnemyAbstract : ObjectAbstract
 
     protected void RotateTowardsPlayer()
     {
-        // Lấy scale ban đầu của Enemy
-        Vector3 originalScale = transform.localScale;
+        if (player != null)
+        {
+            // Lấy scale ban đầu của Enemy
+            Vector3 originalScale = transform.localScale;
 
-        // Kiểm tra xem Player nằm bên trái hay bên phải của Enemy
-        if (player.transform.transform.position.x < transform.position.x)
-        {
-            // Player ở bên trái, quay mặt sang trái
-            transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+            // Kiểm tra xem Player nằm bên trái hay bên phải của Enemy
+            if (player.transform.transform.position.x < transform.position.x)
+            {
+                // Player ở bên trái, quay mặt sang trái
+                transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+            }
+            else if (player.transform.transform.position.x > transform.position.x)
+            {
+                // Player ở bên phải, quay mặt sang phải
+                transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+            }
         }
-        else if (player.transform.transform.position.x > transform.position.x)
+        else
         {
-            // Player ở bên phải, quay mặt sang phải
-            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+            Debug.Log("EnemyAbstract note: player is null");
         }
     }
 
@@ -82,5 +104,6 @@ public abstract class EnemyAbstract : ObjectAbstract
     {
         base.OnDeath();
         UIManager.Instance.ShowLocalizedNoti("ENEMY_KILLED", 0.5f, GetType().Name);
+        Destroy(healthBar.gameObject);
     }
 }

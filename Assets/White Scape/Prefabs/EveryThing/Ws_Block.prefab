@@ -145,7 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 30
   currentHP: 30
-  speed: 1
-  healthBar: {fileID: 0}
+  speed: 0
+  healthBar: {fileID: 1996116515868416402, guid: 800bdbbe1fc45fd4199a2d577e2b8c8b, type: 3}
   hitEffect: {fileID: 4277121173247598384, guid: 6f072c86ff4f3134c88d8e902e7ff218, type: 3}
-  isCol: 0

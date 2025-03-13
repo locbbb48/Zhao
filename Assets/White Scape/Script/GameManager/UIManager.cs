@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject inforPanel; // Bảng hiển thị thông tin liên quán đến màn chơi
     public TMP_Text inforText;
     public Image inforImage;
+    public Button inforButton;
 
     public GameObject bagIcon;
     public GameObject bagPanel;
@@ -112,9 +114,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowInforPanel(string message, Sprite image = null) // Hiển thị In4Panel
+    public void ShowInforPanel(string localizationKey, Sprite image = null)
     {
-        inforText.text = message;
+        EventSystem.current.SetSelectedGameObject(inforButton.gameObject); // Xóa button được chọn
+        string localizedMessage = LocalizationManager.instance.GetLocalizedValue(localizationKey);
+        inforText.text = localizedMessage;
+
         if (image != null)
         {
             inforImage.sprite = image;
@@ -124,9 +129,9 @@ public class UIManager : MonoBehaviour
         {
             inforImage.gameObject.SetActive(false);
         }
+
         inforPanel.SetActive(true);
     }
-
 
     private IEnumerator ShowNotification(float duration)
     {
@@ -219,12 +224,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void HideShopPanel()
+    public void HideAllPanels()
     {
         foreach (var panel in panels)
         {
             panel.SetActive(false);
         }
+
+        EventSystem.current.SetSelectedGameObject(null); // Xóa button được chọn
     }
 
     public void AcceptToBuy()

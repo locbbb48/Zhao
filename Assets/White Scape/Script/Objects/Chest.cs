@@ -1,5 +1,5 @@
-/*    - Codeby Bui Thanh Loc -
-    contact : builoc08042004@gmail.com
+/*    - Codeby Bui Thanh Loc -  
+    contact : builoc08042004@gmail.com  
 */
 
 using System.Collections;
@@ -9,6 +9,7 @@ using UnityEngine;
 public class Chest : InteractedItem
 {
     [SerializeField] private List<PickUpItem> items;
+    private bool isOpened = false;
 
     private void Awake()
     {
@@ -18,25 +19,28 @@ public class Chest : InteractedItem
         }
     }
 
-    private void Update()
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.Return))
+        base.OnTriggerEnter2D(collision);
+
+        if (collision.gameObject == GameManager.Instance.player.gameObject && !isOpened)
         {
-            UIManager.Instance.ShowLocalizedNoti("CHEST_OPENED", 0.5f);
-
-            foreach (var item in items)
-            {
-                item.transform.SetParent(null);
-                item.gameObject.SetActive(true);
-            }
-
-            StartCoroutine(HideChestAfterDelay(0.5f));
+            StartCoroutine(HandleChestOpening());
         }
     }
 
-    private IEnumerator HideChestAfterDelay(float delay)
+    private IEnumerator HandleChestOpening()
     {
-        yield return new WaitForSeconds(delay);
+        isOpened = true;
+        UIManager.Instance.ShowLocalizedNoti("CHEST_OPENED", 0.5f);
+
+        foreach (var item in items)
+        {
+            item.transform.SetParent(null);
+            item.gameObject.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(0.5f);
         this.gameObject.SetActive(false);
     }
 }

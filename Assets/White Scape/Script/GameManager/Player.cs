@@ -194,5 +194,12 @@ public class Player : ObjectAbstract
         maxHP += hp;
     }
 
+    public new void OnDeath()
+    {
+        base.OnDeath(); // Gọi phương thức cha để xử lý chung nếu có
 
+        this.enabled = false;
+
+        UIManager.Instance.ShowInforPanel("LOSE_THIS_LEVEL");
+    }
 }

@@ -145,5 +145,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Coin
   ID: 1
-  quantity: 10
+  quantity: 1
   isPickUped: 0

@@ -1,6 +1,53 @@
 {
   "items": [
     {
+      "key": "DEFAULT",
+      "value": "Loading data..."
+    },
+    {
+      "key": "",
+      "value": ""
+    },
+
+    {
+      "key": "HMM1",
+      "value": "What's this? Hmm..."
+    },
+    {
+      "key": "HMM2",
+      "value": "What does this mean?"
+    },
+    {
+      "key": "HMM3",
+      "value": "Seems like a mystery!"
+    },
+
+    {
+      "key": "MAP2_HINT_1",
+      "value": "The answer to life, the universe and everything"
+    },
+    {
+      "key": "MAP2_HINT_2",
+      "value": "Gutenberg"
+    },
+
+    {
+      "key": "MOVE_INFO",
+      "value": "Move by ASWD or up down left right in keyboard"
+    },
+    {
+      "key": "ENTER_INFO",
+      "value": "Press Enter to attack"
+    },
+
+
+    {
+      "key": "LOSE_THIS_LEVEL",
+      "value": "Unfortunately, you couldn't get past this stage."
+    },
+
+
+    {
       "key": "POISON_EFFECT_END",
       "value": "Poison out of effect."
     },

@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<EffectAbstract> activeEffects = new List<EffectAbstract>();
 
-    public string languageCode = "en";
+    public string languageCode = "vi";
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
             maps[currentMapIndex].gameObject.SetActive(true);
         }
 
-        string languageCode = PlayerPrefs.GetString("language", "en");
+        string languageCode = PlayerPrefs.GetString("language", "vi");
 
         if (LocalizationManager.instance != null)
         {
@@ -55,15 +55,14 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("LocalizationManager instance not found! Vui lòng đảm bảo" +
-                " rằng LocalizationManager đã có trong scene và được khởi tạo trước GameManager.");
+            Debug.LogError("LocalizationManager instance not found!");
         }
     }
     void Update()
     {
         LightManager();
-        UIManager.Instance.pickupItemLeft.text = "Unpicked items: " + maps[currentMapIndex].PickUpItemLeft().ToString()
-            + "and " + maps[currentMapIndex].InteractedItemLeft().ToString() + "Mystery";
+        UIManager.Instance.pickupItemLeft.text = "Items left: " + maps[currentMapIndex].PickUpItemLeft().ToString()
+            + " and " + maps[currentMapIndex].InteractedItemLeft().ToString() + " Mystery boxes";
     }
 
     public void LightManager()

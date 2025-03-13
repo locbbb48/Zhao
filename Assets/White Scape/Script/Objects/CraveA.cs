@@ -1,5 +1,5 @@
-﻿/*    - Codeby Bui Thanh Loc -
-    contact : builoc08042004@gmail.com
+﻿/*    - Codeby Bui Thanh Loc -  
+    contact : builoc08042004@gmail.com  
 */
 
 using System.Collections.Generic;
@@ -37,9 +37,11 @@ public class CraveA : InteractedItem
         SetupQuestion();
     }
 
-    private void Update()
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (playerInRange && Input.GetKeyUp(KeyCode.Return))
+        base.OnTriggerEnter2D(collision);
+
+        if (collision.gameObject == GameManager.Instance.player.gameObject)
         {
             QuestionPanel.SetActive(true);
         }

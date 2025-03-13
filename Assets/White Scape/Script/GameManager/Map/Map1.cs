@@ -1,4 +1,4 @@
-/*    - Codeby Bui Thanh Loc -
+﻿/*    - Codeby Bui Thanh Loc -
     contact : builoc08042004@gmail.com
 */
 using UnityEngine;
@@ -8,6 +8,7 @@ public class Map1 : Map
     protected new void Start()
     {
         base.Start();
+
         if (GameManager.Instance == null)
         {
             Debug.LogError("GameManager instance is null!");
@@ -16,10 +17,16 @@ public class Map1 : Map
         {
             GameManager.Instance.isLightOn = true;
         }
-    }
 
-    private void Update()
-    {
-        
+        // Gán key cho hai điểm trong danh sách infoPoints
+        if (infoPoints.Count >= 2)
+        {
+            infoPoints[0].messageKey = "MOVE_INFO";
+            infoPoints[1].messageKey = "ENTER_INFO";
+        }
+        else
+        {
+            Debug.LogWarning("no InfoPoints.");
+        }
     }
 }

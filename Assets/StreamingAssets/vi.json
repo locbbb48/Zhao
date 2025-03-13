@@ -1,10 +1,56 @@
 {
   "items": [
     {
+      "key": "DEFAULT",
+      "value": "Đang tải dữ liệu..."
+    },
+    {
+      "key": "",
+      "value": ""
+    },
+
+    {
+      "key": "HMM1",
+      "value": "Đây là gì? Hmm..."
+    },
+    {
+      "key": "HMM2",
+      "value": "Thứ này ẩn chứa điều gì sao?"
+    },
+    {
+      "key": "HMM3",
+      "value": "Đây có vẻ là 1 thứ bí ẩn!"
+    },
+
+    {
+      "key": "MAP2_HINT_1",
+      "value": "Câu trả lời cho cuộc sống, vũ trụ và tất cả mọi thứ"
+    },
+    {
+      "key": "MAP2_HINT_2",
+      "value": "Gutenberg"
+    },
+
+    {
+      "key": "MOVE_INFO",
+      "value": "Di chuyển bằng phím ASWD hoặc phím mũi tên"
+    },
+    {
+      "key": "ENTER_INFO",
+      "value": "Nhấn Enter để tấn công"
+    },
+
+
+    {
+      "key": "LOSE_THIS_LEVEL",
+      "value": "Rất tiếc, bạn đã không thể vượt qua màn này."
+    },
+
+
+    {
       "key": "POISON_EFFECT_END",
       "value": "Hiệu ứng độc đã hết."
     },
-
 
 
     {

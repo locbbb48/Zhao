@@ -1,4 +1,4 @@
-/*    - Codeby Bui Thanh Loc -
+﻿/*    - Codeby Bui Thanh Loc -
     contact : builoc08042004@gmail.com
 */
 using UnityEngine;
@@ -23,6 +23,17 @@ public class Map2 : Map
         else
         {
             GameManager.Instance.isLightOn = true;
+        }
+
+        // Gán key cho hai điểm trong danh sách infoPoints
+        if (infoPoints.Count >= 2)
+        {
+            infoPoints[0].messageKey = "";
+            infoPoints[1].messageKey = "";
+        }
+        else
+        {
+            Debug.LogWarning("no InfoPoints.");
         }
     }
 
@@ -52,4 +63,6 @@ public class Map2 : Map
         GameManager.Instance.isLightOn = false; // Finally turn off the light
         //UIManager.Instance.ShowNoti("New Challenge: Lights Off !!!", 1f);
     }
+
+
 }

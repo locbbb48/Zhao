@@ -10,15 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 8097317174186666466}
   - component: {fileID: 231416195404263657}
-  - component: {fileID: 5162558841675897602}
   - component: {fileID: 4466642038510642260}
+  - component: {fileID: 6356986371076148128}
   m_Layer: 0
   m_Name: Ws_Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8097317174186666466
 Transform:
   m_ObjectHideFlags: 0
@@ -86,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5162558841675897602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3942764578842240845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1777e3f7ad1e741aa6983023d2b3d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Book
-  ID: 2
-  quantity: 1
-  isPickUped: 0
 --- !u!61 &4466642038510642260
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +131,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6356986371076148128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942764578842240845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 219d0927c317582468dd8af299890c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultLightIntensity: 0.2
+  activeLightIntensity: 1
+  itemImage: {fileID: -1492191035, guid: 9b9b628bbd7450646a3dc0c15ce8fa3a, type: 3}
+  itemText: DEFAULT

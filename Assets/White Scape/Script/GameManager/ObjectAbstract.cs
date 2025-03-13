@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public abstract class ObjectAbstract : MonoBehaviour
 {
-    [SerializeField] protected float maxHP = 100;
+    [SerializeField] protected float maxHP;
     [SerializeField] protected float currentHP;
     [SerializeField] protected float speed = 1;
 
@@ -17,6 +17,7 @@ public abstract class ObjectAbstract : MonoBehaviour
 
     protected virtual void Start()
     {
+        healthBar.maxValue = maxHP;
         currentHP = maxHP;
         UpdateHealthBar();
     }
