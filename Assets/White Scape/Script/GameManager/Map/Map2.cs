@@ -37,7 +37,7 @@ public class Map2 : Map
         }
     }
 
-    private void Update()
+    protected new void Update()
     {
         if (TurnOfftheLight)
         {
