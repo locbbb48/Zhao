@@ -9,6 +9,7 @@
       "value": ""
     },
 
+
     {
       "key": "HMM1",
       "value": "What's this? Hmm..."
@@ -22,6 +23,11 @@
       "value": "Seems like a mystery!"
     },
 
+
+    {
+      "key": "MAP2_INFO_1",
+      "value": "I smell something in this room"
+    },
     {
       "key": "MAP2_HINT_1",
       "value": "The answer to life, the universe and everything"
@@ -30,14 +36,31 @@
       "key": "MAP2_HINT_2",
       "value": "Gutenberg"
     },
-
     {
-      "key": "MOVE_INFO",
-      "value": "Move by ASWD or up down left right in keyboard"
+      "key": "SALT",
+      "value": "Salt"
     },
     {
-      "key": "ENTER_INFO",
+      "key": "MSG",
+      "value": "MSG"
+    },
+    {
+      "key": "SODA",
+      "value": "Baking soda"
+    },
+    {
+      "key": "MAP2_PASS",
+      "value": "DYNAMO"
+    },
+
+
+    {
+      "key": "MAP1_ENTER_INFO",
       "value": "Press Enter to attack"
+    },
+    {
+      "key": "MAP1_MOVE_INFO",
+      "value": "Move by ASWD or up down left right in keyboard"
     },
 
 
@@ -124,6 +147,10 @@
     {
       "key": "LOCK_NO_KEY",
       "value": "You don't have the Key."
+    },
+    {
+      "key": "LOCK_INCORRECT_PASSWORD",
+      "value": "Password {0} incorrect!"
     },
 
 

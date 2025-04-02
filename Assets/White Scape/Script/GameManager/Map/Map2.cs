@@ -26,10 +26,9 @@ public class Map2 : Map
         }
 
         // Gán key cho hai điểm trong danh sách infoPoints
-        if (infoPoints.Count >= 2)
+        if (infoPoints.Count >= 1)
         {
-            infoPoints[0].messageKey = "";
-            infoPoints[1].messageKey = "";
+            infoPoints[0].messageKey = "MAP2_INFO_1";
         }
         else
         {

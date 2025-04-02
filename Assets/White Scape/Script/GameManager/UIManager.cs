@@ -45,6 +45,8 @@ public class UIManager : MonoBehaviour
     public Button YesButton;
     public TMP_Text pickupItemLeft;
 
+    public GameObject PasswordLockPanel;
+
 
     [SerializeField] private List<GameObject> panels;
 

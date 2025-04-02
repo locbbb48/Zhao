@@ -21,8 +21,8 @@ public class Map1 : Map
         // Gán key cho hai điểm trong danh sách infoPoints
         if (infoPoints.Count >= 2)
         {
-            infoPoints[0].messageKey = "MOVE_INFO";
-            infoPoints[1].messageKey = "ENTER_INFO";
+            infoPoints[0].messageKey = "MAP1_MOVE_INFO";
+            infoPoints[1].messageKey = "MAP1_ENTER_INFO";
         }
         else
         {

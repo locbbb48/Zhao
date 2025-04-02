@@ -9,6 +9,7 @@
       "value": ""
     },
 
+
     {
       "key": "HMM1",
       "value": "Đây là gì? Hmm..."
@@ -22,6 +23,11 @@
       "value": "Đây có vẻ là 1 thứ bí ẩn!"
     },
 
+
+    {
+      "key": "MAP2_INFO_1",
+      "value": "Tôi ngửi thấy mùi gì đó trong phòng này"
+    },
     {
       "key": "MAP2_HINT_1",
       "value": "Câu trả lời cho cuộc sống, vũ trụ và tất cả mọi thứ"
@@ -30,14 +36,31 @@
       "key": "MAP2_HINT_2",
       "value": "Gutenberg"
     },
-
     {
-      "key": "MOVE_INFO",
-      "value": "Di chuyển bằng phím ASWD hoặc phím mũi tên"
+      "key": "SALT",
+      "value": "Muối"
     },
     {
-      "key": "ENTER_INFO",
+      "key": "MSG",
+      "value": "Bột ngọt"
+    },
+    {
+      "key": "SODA",
+      "value": "Baking soda"
+    },
+    {
+      "key": "MAP2_PASS",
+      "value": "DYNAMO"
+    },
+
+
+    {
+      "key": "MAP1_ENTER_INFO",
       "value": "Nhấn Enter để tấn công"
+    },
+    {
+      "key": "MAP1_MOVE_INFO",
+      "value": "Di chuyển bằng phím ASWD hoặc phím mũi tên"
     },
 
 
@@ -124,6 +147,10 @@
     {
       "key": "LOCK_NO_KEY",
       "value": "Bạn không có chìa khóa."
+    },
+    {
+      "key": "LOCK_INCORRECT_PASSWORD",
+      "value": "Mật khẩu: {0} không chính xác!"
     },
 
 
